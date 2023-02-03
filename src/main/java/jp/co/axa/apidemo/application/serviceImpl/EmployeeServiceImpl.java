@@ -1,7 +1,8 @@
-package jp.co.axa.apidemo.services;
+package jp.co.axa.apidemo.application.serviceImpl;
 
-import jp.co.axa.apidemo.entities.Employee;
-import jp.co.axa.apidemo.repositories.EmployeeRepository;
+import jp.co.axa.apidemo.application.services.EmployeeService;
+import jp.co.axa.apidemo.domain.entities.Employee;
+import jp.co.axa.apidemo.domain.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
