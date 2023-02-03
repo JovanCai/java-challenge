@@ -1,6 +1,6 @@
-package jp.co.axa.apidemo.services;
+package jp.co.axa.apidemo.application.services;
 
-import jp.co.axa.apidemo.entities.Employee;
+import jp.co.axa.apidemo.domain.entities.Employee;
 
 import java.util.List;
 

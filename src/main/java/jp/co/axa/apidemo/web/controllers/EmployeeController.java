@@ -1,7 +1,7 @@
-package jp.co.axa.apidemo.controllers;
+package jp.co.axa.apidemo.web.controllers;
 
-import jp.co.axa.apidemo.entities.Employee;
-import jp.co.axa.apidemo.services.EmployeeService;
+import jp.co.axa.apidemo.domain.entities.Employee;
+import jp.co.axa.apidemo.application.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
