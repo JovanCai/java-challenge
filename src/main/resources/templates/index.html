@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Employees</title>
+    <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div style="padding-left: 100px;">
+
+    <form id="form1" method="get" style="width: 1200px;padding-top: 100px" th:action="@{/api/v1/index}">
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <div class="layui-input-block">
+                    <input class="layui-input" name="name" placeholder="ex. John Smith" type="text">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" type="submit">Search by name</button>
+            </div>
+            <div class="layui-inline">
+                <a th:href="@{/api/v1/add}">
+                    <button class="layui-btn layui-btn-normal" type="button">Add an employee</button>
+                </a>
+            </div>
+        </div>
+
+        <span th:if="${beans.size()}!=0">
+        <div id="table_refresh" style="height: 370px;text-align: center;float: left" th:fragment="table_refresh">
+            <table bgcolor="#ffe4c4" border="1" class="layui-table">
+                <thead>
+                <tr>
+                    <th style="text-align:center">Name</th>
+                    <th style="text-align:center">Salary</th>
+                    <th style="text-align:center">Department</th>
+                    <th style="text-align:center">
+                        edit
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ql:${beans}">
+                    <td th:text="${ql.name}"></td>
+                    <td th:text="${ql.salary}"></td>
+                    <td th:text="${ql.department}"></td>
+                    <td>
+                        <a class="layui-btn layui-btn-primary layui-border-orange"
+                           th:href="@{/api/v1/getEmployee(employeeId=${ql.id})}">Edit</a>
+                        <a class="layui-btn layui-btn-primary layui-border-red"
+                           th:href="@{/api/v1/deleteEmployee(employeeId=${ql.id})}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div align="right" style="padding-top: 50px">
+                <a th:href="@{/api/v1/index?pageNum=1}" th:if="${pageNum != 1}">
+                    <button class="layui-btn layui-btn-primary" title="first page" type="button"><<</button>
+                </a>
+                <a th:if="${pageNum == 1}">
+                    <button class="layui-btn layui-btn-primary" title="first page" type="button"><<</button>
+                </a>
+                <a th:href="@{/api/v1/index(pageNum=${pre})}" th:if="${pageNum != 1}">
+                    <button class="layui-btn layui-btn-primary" title="former page" type="button"><</button>
+                </a>
+                <a th:if="${pageNum == 1}">
+                    <button class="layui-btn layui-btn-primary" title="former page" type="button"><</button>
+                </a>
+                <a th:href="@{/api/v1/index(pageNum=${next})}" th:if="${pageNum == 1}">
+                    <button class="layui-btn layui-btn-primary" title="next page" type="button">></button>
+                </a>
+                <a th:if="${pageNum != 1}">
+                    <button class="layui-btn layui-btn-primary" title="next page" type="button">></button>
+                </a>
+                <a th:href="@{/api/v1/index(pageNum=${totalPage})}" th:if="${pageNum == 1}">
+                    <button class="layui-btn layui-btn-primary" title="last page" type="button">>></button>
+                </a>
+                <a th:if="${pageNum != 1}">
+                    <button class="layui-btn layui-btn-primary" title="last page" type="button">>></button>
+                </a>
+            </div>
+        </div>
+        </span>
+    </form>
+
+
+</div>
+
+<script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+<script type="text/javascript">
+    function show(){
+        document.getElementById("table2").style.display="block";
+    }
+
+    function query(){
+        document.getElementById("form1").action = "/api/v1/employees";
+        document.getElementById("form1").submit();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

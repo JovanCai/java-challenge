@@ -1,7 +1,6 @@
 package jp.co.axa.apidemo.domain.entities;
 
 import jp.co.axa.apidemo.application.dto.EmployeeDto;
-import jp.co.axa.apidemo.web.valueObjects.EmployeeVo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,12 +34,4 @@ public class Employee {
         return employeeDto;
     }
 
-    public Employee fromVo(EmployeeVo employeeVo) {
-        Employee employee = new Employee();
-        employee.setId(this.id);
-        employee.setName(employeeVo.name);
-        employee.setSalary(employeeVo.salary);
-        employee.setDepartment(employeeVo.department);
-        return employee;
-    }
 }

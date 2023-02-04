@@ -1,18 +1,22 @@
 package jp.co.axa.apidemo.application.services;
 
+import jp.co.axa.apidemo.application.dto.EmployeeDto;
 import jp.co.axa.apidemo.domain.entities.Employee;
-
-import java.util.List;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
 
 public interface EmployeeService {
+    long getTotal(Example<Employee> of);
 
-    public List<Employee> retrieveEmployees();
+    Page<Employee> retrieveEmployees(Example<Employee> of, int page);
 
-    public Employee getEmployee(Long employeeId);
+    Example<Employee> generateQueryParam(String name);
 
-    public void saveEmployee(Employee employee);
+    EmployeeDto getEmployee(Long employeeId);
 
-    public void deleteEmployee(Long employeeId);
+    void saveEmployee(Employee employee);
 
-    public void updateEmployee(Employee employee);
+    void deleteEmployee(Long employeeId);
+
+    void updateEmployee(Employee employee);
 }

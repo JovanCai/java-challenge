@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>employees</title>
+    <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div style="padding-left: 100px;">
+
+    <form id="form1" method="post" style="width: 420px;padding-top: 100px" th:action="@{/api/v1/updateEmployee}">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>Update employee information</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">Name</label>
+                <div class="layui-input-inline">
+                    <input class="layui-input " name="id" th:value="${employee.id}" type="hidden">
+                    <input class="layui-input " name="name" th:value="${employee.name}" type="text">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">Salary</label>
+                <div class="layui-input-inline">
+                    <input class="layui-input " name="salary" th:value="${employee.salary}" type="text">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">Department</label>
+                <div class="layui-input-inline">
+                    <input class="layui-input " name="department" th:value="${employee.department}" type="text">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button class="layui-btn" type="submit">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
