@@ -5,6 +5,7 @@ import jp.co.axa.apidemo.domain.repositories.EmployeeRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Commit;
@@ -18,19 +19,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApiDemoApplicationTests {
-    private final DataSource dataSource;
-    private final JdbcTemplate jdbcTemplate;
+    @Autowired
+    private DataSource dataSource;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    @Autowired
     private EntityManager entityManager;
+    @Autowired
     private EmployeeRepository repository;
-
-    public ApiDemoApplicationTests(
-            DataSource dataSource,
-            JdbcTemplate jdbcTemplate,
-            EntityManager entityManager,
-            EmployeeRepository repository) {
-        this.dataSource = dataSource;
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     @Test
     public void injectedComponentsAreNotNull() {
