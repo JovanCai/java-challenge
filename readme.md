@@ -16,6 +16,13 @@
 - [x] Changed syntax and annotations
 - [x] Added login page to protect employee controller
 - [x] Added caching logic for database calls
+- [x] Manage branches with structure below
+  ```
+  main
+  └───release
+      ├───feature/aaa
+      └───feature/bbb
+  ```
 - [x] Added GitHub action to build and test every time push or added new pull-request
 
 ### The project can be improved by:
