@@ -21,6 +21,8 @@
 ### The project can be improved by:
 
 - We can consider change database type depending on the requirement.
+- Use @ControllerAdvice and @ExceptionHandler to separate and handle error properly.
+- we can set release branch’s name such as “release_20230210” if we know the sprint duration.
 
 #### Your experience in Java
 
