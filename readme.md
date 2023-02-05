@@ -2,51 +2,36 @@
 
 - Install packages with `mvn package`
 - Run `mvn spring-boot:run` for starting the application (or use your IDE)
+- Login with
+  ```
+  name: admin
+  password: admin
+  ```
 
-Application (with the embedded H2 database) is ready to be used ! You can access the url below for testing it :
+### Done
 
-- Swagger UI : http://localhost:8080/swagger-ui.html
-- H2 UI : http://localhost:8080/h2-console
+- [x] Rearranged codes with ddd
+- [X] Added frontend pages
+- [x] Added tests
+- [x] Changed syntax and annotations
+- [x] Added login page to protect employee controller
+- [x] Added caching logic for database calls
+- [x] Manage branches with structure below
+  ```
+  main
+  └───release
+      ├───feature/aaa
+      └───feature/bbb
+  ```
+- [x] Added GitHub action to build and test every time push or added new pull-request
 
-> Don't forget to set the `JDBC URL` value as `jdbc:h2:mem:testdb` for H2 UI.
+### The project can be improved by:
 
-
-
-### Instructions
-
-- download the zip file of this project
-- create a repository in your own github named 'java-challenge'
-- clone your repository in a folder on your machine
-- extract the zip file in this folder
-- commit and push
-
-- Enhance the code in any ways you can see, you are free! Some possibilities:
-  - Add tests
-  - Change syntax
-  - Protect controller end points
-  - Add caching logic for database calls
-  - Improve doc and comments
-  - Fix any bug you might find
-- Edit readme.md and add any comments. It can be about what you did, what you would have done if you had more time, etc.
-- Send us the link of your repository.
-
-#### Restrictions
-- use java 8
-
-
-#### What we will look for
-- Readability of your code
-- Documentation
-- Comments in your code 
-- Appropriate usage of spring boot
-- Appropriate usage of packages
-- Is the application running as expected
-- No performance issues
+- We can consider change database type depending on the requirement.
+- Use @ControllerAdvice and @ExceptionHandler to separate and handle error properly.
+- we can set release branch’s name such as “release_20230210” if we know the sprint duration.
 
 #### Your experience in Java
 
-Please let us know more about your Java experience in a few sentences. For example:
-
-- I have 3 years experience in Java and I started to use Spring Boot from last year
-- I'm a beginner and just recently learned Spring Boot
-- I know Spring Boot very well and have been using it for many years
+- I have 2 years experience in Kotlin and Java.
+- I've experienced several projects mainly focused on backend development using Spring-boot.

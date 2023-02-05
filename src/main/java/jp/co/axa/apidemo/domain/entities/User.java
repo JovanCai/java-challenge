@@ -1,4 +1,4 @@
-package jp.co.axa.apidemo.entities;
+package jp.co.axa.apidemo.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,31 +8,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * Entity for login user
+ */
 @Entity
-@Table(name="EMPLOYEE")
-public class Employee {
+public class User {
 
     @Getter
     @Setter
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Getter
     @Setter
-    @Column(name="EMPLOYEE_NAME")
+    @Column(name = "name")
     private String name;
 
     @Getter
     @Setter
-    @Column(name="EMPLOYEE_SALARY")
-    private Integer salary;
+    @Column(name = "password")
+    private String password;
 
-    @Getter
-    @Setter
-    @Column(name="DEPARTMENT")
-    private String department;
 
 }
