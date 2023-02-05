@@ -6,14 +6,20 @@ import jp.co.axa.apidemo.application.services.EmployeeService;
 import jp.co.axa.apidemo.domain.entities.Employee;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+import static jp.co.axa.apidemo.application.CommonValue.NUMBER_OF_COLUMNS;
+
+@Controller
 @Slf4j
 @RequestMapping("/api/v1")
 public class EmployeeController {
@@ -40,8 +46,9 @@ public class EmployeeController {
 
         long total = employeeService.getTotal(of);
         // Every page will only show 5 item
-        int totalPage = ((int) total + 5 - 1) / 5;
-        map.addAttribute("total", employeeService.getTotal(of) / 5);
+        // todo: add pull down on frontend to change the amount showing on one page
+        int totalPage = ((int) total + NUMBER_OF_COLUMNS - 1) / NUMBER_OF_COLUMNS;
+        map.addAttribute("total", employeeService.getTotal(of) / NUMBER_OF_COLUMNS);
         map.addAttribute("totalPage", totalPage);
         if (totalPage == 1) {
             map.addAttribute("pre", 1);
