@@ -65,7 +65,6 @@ public class EmployeeController {
                 map.addAttribute("next", pageNum + 1);
             }
         }
-
     }
 
     @GetMapping("/index")
